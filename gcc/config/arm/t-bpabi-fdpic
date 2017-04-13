@@ -1,0 +1,22 @@
+MULTILIB_OPTIONS     = mthumb/marm march=armv7-m mno-fdpic mfloat-abi=softfp
+MULTILIB_DIRNAMES    = thumb arm armv7-m no-fdpic softfp
+
+MULTILIB_MATCHES     = march?armv7-m=mcpu?cortex-m3
+
+MULTILIB_EXCEPTIONS  =
+MULTILIB_REUSE       =
+
+MULTILIB_OSDIRNAMES  = mthumb=!thumb-fdpic
+MULTILIB_REQUIRED    = mthumb
+MULTILIB_OSDIRNAMES += mthumb/mno-fdpic=!thumb
+MULTILIB_REQUIRED   += mthumb/mno-fdpic
+
+MULTILIB_OSDIRNAMES += marm=!arm-fdpic
+MULTILIB_REQUIRED   += marm
+MULTILIB_OSDIRNAMES += marm/mno-fdpic=!arm
+MULTILIB_REQUIRED   += marm/mno-fdpic
+
+MULTILIB_OSDIRNAMES += mthumb/march.armv7-m=!armv7-m-fdpic
+MULTILIB_REQUIRED   += mthumb/march=armv7-m
+MULTILIB_OSDIRNAMES += mthumb/march.armv7-m/mno-fdpic=!armv7-m
+MULTILIB_REQUIRED   += mthumb/march=armv7-m/mno-fdpic
